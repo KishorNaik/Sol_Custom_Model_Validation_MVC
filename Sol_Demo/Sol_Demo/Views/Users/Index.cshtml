@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model Sol_Demo.Models.UserModel
+
+<h1>Validation Demo</h1>
+
+<form asp-route="onsubmit" method="post">
+    <div class=" container">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="txtFirstName">First Name</label>
+                    <input id="txtFirstName" type="text" class="form-control" asp-for="FirstName" />
+                    <span class="text-danger" asp-validation-for="FirstName"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="txtLastName">Last Name</label>
+                    <input id="txtLastName" type="text" class="form-control" asp-for="LastName" />
+                    <span class="text-danger" asp-validation-for="LastName"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="txtEmailId">Email Id</label>
+                    <input id="txtEmailId" type="text" class="form-control" asp-for="EmailId" />
+                    <span class="text-danger" asp-validation-for="EmailId"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="txtMobileNo">Mobile No</label>
+                    <input id="txtMobileNo" type="number" class="form-control" asp-for="MobileNo" />
+                    <span class="text-danger" asp-validation-for="MobileNo"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@*Client Side Validation by using Pre Defined Data Annotations.*@
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+
+}
